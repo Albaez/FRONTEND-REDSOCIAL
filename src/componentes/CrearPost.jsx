@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
             
         });
 
-        const onChangeHandler = (event) => {
+        const onChangeHandler = () => {
             const { name, value } = event.target;
             
             if (name === "contenido") {
@@ -22,7 +22,7 @@ import { useNavigate } from "react-router-dom";
           };
           
         
-        const submitHandler = async (event) => {
+        const onSubmit = async (event) => {
 
             const url = "http://localhost:3000/api/publicacion";
     
@@ -43,7 +43,7 @@ import { useNavigate } from "react-router-dom";
         return (
             <>
             <div className='container mt-5' >
-                <form onSubmit={submitHandler} >
+                <form onSubmit={onSubmit} >
                     <fieldset>
                         <legend>Crear Post</legend>
 
