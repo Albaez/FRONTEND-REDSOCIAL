@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
         const navigate =  useNavigate();
 
         const [form, setForm] = useState({
-
+            
+            usuario_id : "", 
             usuario : "", 
             contenido : ""
             
@@ -29,7 +30,8 @@ import { useNavigate } from "react-router-dom";
             event.preventDefault();
     
             const datosFormulario = new FormData();
-            
+
+            datosFormulario.append( "usuario_id" , form.usuario_id);
             datosFormulario.append( "usuario" , form.usuario);
             datosFormulario.append( "contenido" , form.contenido);
             
@@ -48,7 +50,16 @@ import { useNavigate } from "react-router-dom";
                         <legend>Crear Post</legend>
 
                         <div className="form-group row">
-                            <label className="col-sm-2 col-form-label">Usuario</label>
+                            <label className="col-sm-2 col-form-label">Usuario ID</label>
+                            <div className="col-sm-10">
+                                <input className="form-control-plaintext"
+                                    name="usuario_id"
+                                    onChange={onChangeHandler} />
+                            </div>
+                        </div>
+
+                        <div className="form-group row">
+                            <label className="col-sm-2 col-form-label">Nombre Usuario</label>
                             <div className="col-sm-10">
                                 <input className="form-control-plaintext"
                                     name="usuario"
@@ -57,7 +68,7 @@ import { useNavigate } from "react-router-dom";
                         </div>
 
                         <div className="form-group row">
-                            <label className="col-sm-2 col-form-label">Contenido</label>
+                            <label className="col-sm-2 col-form-label">Agregar Contenido</label>
                             <div className="col-sm-10">
                                 <input className="form-control-plaintext"
                                     name="contenido"
